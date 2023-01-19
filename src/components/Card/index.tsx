@@ -17,6 +17,8 @@ export function Card({
   toggleTaskStateFunction,
   removeTaskFunction,
 }: ICardProps) {
+  // console.log(task)
+
   return (
     <Container>
       <TouchableOpacity
@@ -41,7 +43,9 @@ export function Card({
           marginLeft: 8,
         }}
       >
-        <Text color="gray_100">{task.description}</Text>
+        <Text color="gray_100" crossed={task.isCompleted}>
+          {task.description}
+        </Text>
       </View>
 
       <TouchableOpacity

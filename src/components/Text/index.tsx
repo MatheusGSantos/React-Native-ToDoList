@@ -7,6 +7,7 @@ export interface ICustomStyleProps {
   size?: Lowercase<keyof typeof theme.FONT_SIZE>
   fontWeight?: Lowercase<keyof typeof theme.FONT_FAMILY>
   color?: Lowercase<keyof typeof theme.COLORS>
+  crossed?: boolean
 }
 
 interface ICustomTextProps extends TextProps, ICustomStyleProps {}

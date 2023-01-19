@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, memo, useCallback } from 'react'
 
 import { Counter } from '@components/Counter'
 import { Task } from '@utils/index'
@@ -8,12 +8,35 @@ import { Container, TaskCounterContainer, TaskListContainer } from './styles'
 import ClipboardIcon from '../../assets/icons/clipboard.svg'
 import { Text } from '@components/Text'
 import { Card } from '@components/Card'
-import { FlatList } from 'react-native'
+import { FlatList, View } from 'react-native'
 
 interface ITaskListProps {
   taskList: Task[]
   toggleTaskStateFunction: (id: number) => void
   removeTaskFunction: (id: number) => void
+}
+
+function EmptyList() {
+  return (
+    <TaskListContainer>
+      <ClipboardIcon width={56} height={56} style={{ marginTop: 48 }} />
+      <Text
+        fontWeight="bold"
+        color="gray_300"
+        size="md"
+        style={{ marginTop: 16 }}
+      >
+        Você ainda não tem tarefas cadastradas
+      </Text>
+      <Text color="gray_300" size="md">
+        Crie tarefas e organize seus itens a fazer
+      </Text>
+    </TaskListContainer>
+  )
+}
+
+function Gap({ gap }: { gap: number }) {
+  return <View style={{ height: gap }} />
 }
 
 export function TaskList({
@@ -39,6 +62,8 @@ export function TaskList({
     })
   }, [taskList])
 
+  const GapComponent = useCallback(() => <Gap gap={8} />, [])
+
   return (
     <Container>
       <TaskCounterContainer>
@@ -46,43 +71,22 @@ export function TaskList({
         <Counter color="purple" title="Concluídas" count={finishedTasksCount} />
       </TaskCounterContainer>
 
-      <TaskListContainer {...{ isEmpty: orderedTaskList.length <= 0 }}>
-        {orderedTaskList.length > 0 ? (
-          <>
-            {/* <FlatList
-              data={orderedTaskList}
-              keyExtractor={(item) => String(item.id)}
-              renderItem={({ item }) => (
-                <Card
-                  task={item}
-                  toggleTaskStateFunction={toggleTaskStateFunction}
-                  removeTaskFunction={removeTaskFunction}
-                />
-              )}
-            /> */}
-            <Card
-              task={orderedTaskList[0]}
-              toggleTaskStateFunction={toggleTaskStateFunction}
-              removeTaskFunction={removeTaskFunction}
-            />
-          </>
-        ) : (
-          <>
-            <ClipboardIcon width={56} height={56} style={{ marginTop: 48 }} />
-            <Text
-              fontWeight="bold"
-              color="gray_300"
-              size="md"
-              style={{ marginTop: 16 }}
-            >
-              Você ainda não tem tarefas cadastradas
-            </Text>
-            <Text color="gray_300" size="md">
-              Crie tarefas e organize seus itens a fazer
-            </Text>
-          </>
+      <FlatList
+        data={orderedTaskList}
+        keyExtractor={(item) => String(item.id)}
+        renderItem={({ item }) => (
+          <Card
+            task={item}
+            toggleTaskStateFunction={toggleTaskStateFunction}
+            removeTaskFunction={removeTaskFunction}
+          />
         )}
-      </TaskListContainer>
+        ListEmptyComponent={<EmptyList />}
+        ItemSeparatorComponent={GapComponent}
+        style={{
+          marginTop: 20,
+        }}
+      />
     </Container>
   )
 }

@@ -14,13 +14,11 @@ export const TaskCounterContainer = styled.View`
   margin-top: 32px;
 `
 
-export const TaskListContainer = styled.View.attrs<ITaskListContainerProps>(
-  ({ theme, isEmpty }) => ({
-    borderColor: theme.COLORS.GRAY_400,
-    borderTopWidth: isEmpty ? 1 : 0,
-  }),
-)`
+export const TaskListContainer = styled.View.attrs(({ theme }) => ({
+  borderColor: theme.COLORS.GRAY_400,
+  borderTopWidth: 1,
+}))`
   flex: 1;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   align-items: center;
 `

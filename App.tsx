@@ -1,5 +1,7 @@
+import { ActivityIndicator } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, ActivityIndicator } from "react-native";
+import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+
 import {
   Inter_400Regular,
   Inter_500Medium,
@@ -8,9 +10,9 @@ import {
 } from "@expo-google-fonts/inter";
 
 import { ThemeProvider } from "styled-components/native";
-
 import theme from "./src/global/styles/theme";
-import { Text } from "@components/Text";
+
+import { Home } from "@screens/Home";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -19,26 +21,26 @@ export default function App() {
     Inter_700Bold,
   });
 
-  return !fontsLoaded ? (
-    <ActivityIndicator />
-  ) : (
+  return (
     <ThemeProvider theme={theme}>
-      <View style={styles.container}>
-        <Text size="lg" color="blue" fontWeight="bold">
-          Text1
-        </Text>
-        <Text>Text2</Text>
-        <StatusBar style="auto" />
-      </View>
+      <SafeAreaProvider>
+        <SafeAreaView
+          style={{
+            flex: 1,
+            backgroundColor: theme.COLORS.GRAY_600,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <StatusBar style="light" backgroundColor="transparent" translucent />
+
+          {!fontsLoaded ? (
+            <ActivityIndicator color={theme.COLORS.PURPLE} size="large" />
+          ) : (
+            <Home />
+          )}
+        </SafeAreaView>
+      </SafeAreaProvider>
     </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

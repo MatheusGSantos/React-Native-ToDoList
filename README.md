@@ -1,6 +1,6 @@
 <br /><br />
 <h4 align="center">
-<img src="./assets/logo.svg" align="center"/>
+<img src="./assets/logo.svg" align="center" height="56px"/>
 </h4>
 <br /><br />
 

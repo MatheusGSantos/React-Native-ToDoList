@@ -15,7 +15,7 @@ React Native ToDo List app from Rocketseat's React Native Ignite challenge.
 
 # Running ⚙
 
-* Clone this repository**
+* Clone this repository
 * Inside the project's root folder, run:
 
 ```bash
@@ -45,20 +45,19 @@ npx expo start
 
 # Features 📌
 
-* **Add ➕**
 
-<img align="top" src="./assets/Add.gif" height='480px'>
-<br/>
+<div align="center">
+ 
+<br />
+  
+**Add ➕, Check ✔ and Delete ❌**
+  
+<br />
+  
+<img align="top" src="./assets/Add.gif" height="668px" width="308px" alt="Adding Task"> &nbsp;&nbsp; <img align="top" src="./assets/Toggle.gif" height="668px" width="308px" alt="Check/Uncheck Task"> &nbsp;&nbsp; <img align="top" src="./assets/Delete.gif" height="668px" width="308px" alt="Delete Task">
 
-* **Check ✔**
-
-<img align="top" src="./assets/Toggle.gif" height='480px'>
-<br/>
-
-* **Delete ❌**
-
-<img align="top" src="./assets/Delete.gif" height='480px'>
-
+</div>
+  
 # Technologies 💻
 
 * Expo

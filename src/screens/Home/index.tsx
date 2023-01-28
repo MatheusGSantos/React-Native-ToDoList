@@ -54,12 +54,14 @@ export function Home() {
   )
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <Container>
+    <Container>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <Header>
           <Logo />
         </Header>
-        <Content>
+      </TouchableWithoutFeedback>
+      <Content>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View
             style={{
               flexDirection: 'row',
@@ -76,14 +78,14 @@ export function Home() {
               <PlusIcon />
             </Button>
           </View>
+        </TouchableWithoutFeedback>
 
-          <TaskList
-            taskList={tasks}
-            toggleTaskStateFunction={toggleTaskStateFunction}
-            removeTaskFunction={removeTaskFunction}
-          />
-        </Content>
-      </Container>
-    </TouchableWithoutFeedback>
+        <TaskList
+          taskList={tasks}
+          toggleTaskStateFunction={toggleTaskStateFunction}
+          removeTaskFunction={removeTaskFunction}
+        />
+      </Content>
+    </Container>
   )
 }

@@ -1,4 +1,4 @@
-import { useMemo, memo, useCallback } from 'react'
+import { useMemo, useCallback } from 'react'
 
 import { Counter } from '@components/Counter'
 import { Task } from '@utils/index'
@@ -8,7 +8,13 @@ import { Container, TaskCounterContainer, TaskListContainer } from './styles'
 import ClipboardIcon from '../../assets/icons/clipboard.svg'
 import { Text } from '@components/Text'
 import { Card } from '@components/Card'
-import { FlatList, View } from 'react-native'
+import {
+  FlatList,
+  Keyboard,
+  ListRenderItemInfo,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native'
 
 interface ITaskListProps {
   taskList: Task[]
@@ -64,25 +70,39 @@ export function TaskList({
 
   const GapComponent = useCallback(() => <Gap gap={8} />, [])
 
+  const keyExtractor = useCallback((item: Task) => String(item.id), [])
+
+  const renderItem = useCallback(
+    ({ item }: ListRenderItemInfo<Task>) => (
+      <Card
+        task={item}
+        toggleTaskStateFunction={toggleTaskStateFunction}
+        removeTaskFunction={removeTaskFunction}
+      />
+    ),
+    [toggleTaskStateFunction, removeTaskFunction],
+  )
+
   return (
     <Container>
-      <TaskCounterContainer>
-        <Counter color="blue" title="Criadas" count={unfinishedTasksCount} />
-        <Counter color="purple" title="Concluídas" count={finishedTasksCount} />
-      </TaskCounterContainer>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <TaskCounterContainer>
+          <Counter color="blue" title="Criadas" count={unfinishedTasksCount} />
+          <Counter
+            color="purple"
+            title="Concluídas"
+            count={finishedTasksCount}
+          />
+        </TaskCounterContainer>
+      </TouchableWithoutFeedback>
 
       <FlatList
         data={orderedTaskList}
-        keyExtractor={(item) => String(item.id)}
-        renderItem={({ item }) => (
-          <Card
-            task={item}
-            toggleTaskStateFunction={toggleTaskStateFunction}
-            removeTaskFunction={removeTaskFunction}
-          />
-        )}
+        keyExtractor={keyExtractor}
+        renderItem={renderItem}
         ListEmptyComponent={<EmptyList />}
         ItemSeparatorComponent={GapComponent}
+        onScrollBeginDrag={Keyboard.dismiss}
         style={{
           marginTop: 20,
         }}

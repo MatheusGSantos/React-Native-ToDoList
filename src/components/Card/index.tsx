@@ -17,8 +17,6 @@ export function Card({
   toggleTaskStateFunction,
   removeTaskFunction,
 }: ICardProps) {
-  // console.log(task)
-
   return (
     <Container>
       <TouchableOpacity

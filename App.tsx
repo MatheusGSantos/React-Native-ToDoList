@@ -1,25 +1,25 @@
-import { ActivityIndicator } from "react-native";
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import { ActivityIndicator } from 'react-native'
+import { StatusBar } from 'expo-status-bar'
+import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context'
 
 import {
   Inter_400Regular,
   Inter_500Medium,
   Inter_700Bold,
   useFonts,
-} from "@expo-google-fonts/inter";
+} from '@expo-google-fonts/inter'
 
-import { ThemeProvider } from "styled-components/native";
-import theme from "./src/global/styles/theme";
+import { ThemeProvider } from 'styled-components/native'
+import theme from './src/global/styles/theme'
 
-import { Home } from "@screens/Home";
+import { Home } from '@screens/Home'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
     Inter_700Bold,
-  });
+  })
 
   return (
     <ThemeProvider theme={theme}>
@@ -28,8 +28,8 @@ export default function App() {
           style={{
             flex: 1,
             backgroundColor: theme.COLORS.GRAY_600,
-            justifyContent: "center",
-            alignItems: "center",
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
           <StatusBar style="light" backgroundColor="transparent" translucent />
@@ -42,5 +42,5 @@ export default function App() {
         </SafeAreaView>
       </SafeAreaProvider>
     </ThemeProvider>
-  );
+  )
 }

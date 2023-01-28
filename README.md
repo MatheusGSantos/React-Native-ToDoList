@@ -15,7 +15,7 @@ React Native ToDo List app from Rocketseat's React Native Ignite challenge.
 
 # Running ⚙
 
-* Clone this repository
+* Clone this repository**
 * Inside the project's root folder, run:
 
 ```bash
@@ -23,14 +23,15 @@ npm i
 npm run start
 ```
 
-or (with yarn):
+* or (with yarn):
 
 ```bash
 yarn
 yarn start
 ```
 
-or even (with npx):
+* or even (with npx):
+
 ```bash
 npm i
 npx expo start
@@ -42,3 +43,27 @@ npx expo start
 * Scan the QRCode on your terminal
 * Done!
 
+# Features 📌
+
+<div align="center">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
+    <div>
+      <p><strong>Add ➕</strong></p>
+      <img align="top" src="./assets/Add.gif" height='480px'>
+    </div>
+    <div>
+      <p><strong>Check ✔</strong></p>
+      <img align="top" src="./assets/Toggle.gif" height='480px'>
+    </div>
+    <div>
+      <p><strong>Delete ❌</strong></p>
+      <img align="top" src="./assets/Delete.gif" height='480px'>
+    </div>
+  </div>
+</div>
+
+# Technologies 💻
+
+* Expo
+* React-Native
+* Typescript

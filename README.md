@@ -54,7 +54,7 @@ npx expo start
   
 <br />
   
-<img align="top" src="./assets/Add.gif" height="668px" width="308px" alt="Adding Task"> &nbsp;&nbsp; <img align="top" src="./assets/Toggle.gif" height="668px" width="308px" alt="Check/Uncheck Task"> &nbsp;&nbsp; <img align="top" src="./assets/Delete.gif" height="668px" width="308px" alt="Delete Task">
+<img align="top" src="./assets/Add.gif" height="501px" width="231px" alt="Adding Task"> &nbsp;&nbsp; <img align="top" src="./assets/Toggle.gif" height="501px" width="231px" alt="Check/Uncheck Task"> &nbsp;&nbsp; <img align="top" src="./assets/Delete.gif" height="501px" width="231px" alt="Delete Task">
 
 </div>
   

@@ -45,22 +45,19 @@ npx expo start
 
 # Features 📌
 
-<div align="center">
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
-    <div>
-      <p><strong>Add ➕</strong></p>
-      <img align="top" src="./assets/Add.gif" height='480px'>
-    </div>
-    <div>
-      <p><strong>Check ✔</strong></p>
-      <img align="top" src="./assets/Toggle.gif" height='480px'>
-    </div>
-    <div>
-      <p><strong>Delete ❌</strong></p>
-      <img align="top" src="./assets/Delete.gif" height='480px'>
-    </div>
-  </div>
-</div>
+* **Add ➕**
+
+<img align="top" src="./assets/Add.gif" height='480px'>
+<br/>
+
+* **Check ✔**
+
+<img align="top" src="./assets/Toggle.gif" height='480px'>
+<br/>
+
+* **Delete ❌**
+
+<img align="top" src="./assets/Delete.gif" height='480px'>
 
 # Technologies 💻
 
